@@ -1,6 +1,7 @@
 # Development
 
 #Powershell - Base64 Decode Executable Into File
+#eliko-ps.b64 = pingcastle.exe
 
 ``Set-Content -Path oz.exe -Value ([System.Convert]::FromBase64String((Get-Content ".\eliko-ps.b64"))) -Encoding Byte;``
 
