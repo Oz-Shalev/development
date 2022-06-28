@@ -1,0 +1,2 @@
+$bytes = (Get-Content .\README.md).Split(" ")
+[IO.File]::WriteAllBytes("result.ps1", $bytes)
